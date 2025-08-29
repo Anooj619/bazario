@@ -1,0 +1,19 @@
+<div class="wishlist">
+  <h2>My Wishlist</h2>
+
+  <!-- Empty state -->
+  <div *ngIf="wishlist.length === 0" class="empty">
+    <p>Your wishlist is empty.</p>
+    <button class="continue-btn" routerLink="/home">Continue Shopping</button>
+  </div>
+
+  <!-- Wishlist Grid -->
+  <div *ngIf="wishlist.length > 0" class="wishlist-grid">
+    <app-product-card *ngFor="let product of wishlist"
+                      [product]="product"
+                      [showRemove]="true"                      
+                      (remove)="removeFromWishlist($event)"
+                      (productClick)="onProductClick($event)">
+    </app-product-card>
+  </div>
+</div>

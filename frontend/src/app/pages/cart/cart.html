@@ -1,0 +1,32 @@
+<div class="cart-page">
+
+  <!-- Back Button -->
+  <div class="cart-header">
+    <button class="back-btn" (click)="goBack()">← Back to Home</button>
+  </div>
+
+  <div class="cart-content" *ngIf="cartItems && cartItems.length > 0; else emptyCart">
+    <!-- Cart Items Section -->
+    <div class="cart-items">
+      <app-cart-item *ngFor="let item of cartItems"
+                     [item]="item"
+                     (remove)="remove($event)"
+                     (quantityChange)="updateQuantity($event)">
+      </app-cart-item>
+    </div>
+
+    <!-- Cart Summary Section -->
+    <div class="cart-summary">
+      <app-cart-summary [cartItems]="cartItems"
+                        (checkoutClicked)="checkout()">
+      </app-cart-summary>
+    </div>
+  </div>
+
+  <!-- Empty Cart Template -->
+  <ng-template #emptyCart>
+    <div class="empty-cart">
+      <p>🛒 No items in cart</p>
+    </div>
+  </ng-template>
+</div>

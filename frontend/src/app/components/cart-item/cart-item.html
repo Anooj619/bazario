@@ -1,0 +1,30 @@
+<div class="cart-item" *ngIf="item">
+  <!-- Product Image -->
+  <div class="item-image">
+    <app-product-image [imageUrl]="item.productImageUrl ?? ''"
+                       [alt]="item.productName ?? 'product image'"
+                       type="cart" />
+  </div>
+
+  <!-- Product Info -->
+  <div class="item-info">
+    <h4 class="item-name">{{ item.productName }}</h4>
+
+    <!-- Price -->
+    <div class="item-price">
+      ₹{{ item.productPrice ?? 0 }}
+      <span class="old-price">₹{{ (item.productPrice ?? 0) + 500 }}</span>
+      <span class="discount">25% OFF</span>
+    </div>
+
+    <!-- Quantity Controls -->
+    <div class="quantity-controls">
+      <button (click)="decreaseQuantity()">-</button>
+      <span>{{ item.quantity }}</span>
+      <button (click)="increaseQuantity()">+</button>
+    </div>
+
+    <!-- Remove Button -->
+    <button class="remove-btn" (click)="removeItem()">Remove</button>
+  </div>
+</div>

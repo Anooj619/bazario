@@ -1,0 +1,79 @@
+<div class="login-container">
+  <div class="logo" (click)="navigateHome()">Bazario</div>
+
+  <h2 *ngIf="!isSignup">Login to Bazario</h2>
+  <h2 *ngIf="isSignup">Create an Account</h2>
+
+  <!-- ✅ Inline success banner after signup -->
+  <div *ngIf="successMessage && !isSignup" class="success-banner">
+    {{ successMessage }}
+  </div>
+
+  <!-- LOGIN FORM -->
+  <form *ngIf="!isSignup" (ngSubmit)="login()">
+    <label>Email</label>
+    <input type="email"
+           [(ngModel)]="email"
+           name="email"
+           class="form-input"
+           required />
+
+    <label>Password</label>
+    <div class="password-wrapper">
+      <input [type]="showPassword ? 'text' : 'password'"
+             [(ngModel)]="password"
+             name="password"
+             required />
+      <button type="button" class="toggle-password" (click)="togglePassword()">
+        <i class="fa" [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
+      </button>
+    </div>
+
+    <!-- Inline error only for login -->
+    <p *ngIf="errorMessage && !isSignup" class="error-msg">{{ errorMessage }}</p>
+
+    <button type="submit" class="login-btn">Login</button>
+  </form>
+
+  <!-- SIGNUP FORM -->
+  <form *ngIf="isSignup" (ngSubmit)="signup()">
+    <label>Username</label>
+    <input type="text"
+           [(ngModel)]="username"
+           name="username"
+           class="form-input"
+           required />
+
+    <label>Email</label>
+    <input type="email"
+           [(ngModel)]="email"
+           name="email"
+           class="form-input"
+           required />
+
+    <label>Password</label>
+    <div class="password-wrapper">
+      <input [type]="showPassword ? 'text' : 'password'"
+             [(ngModel)]="password"
+             name="password"
+             required />
+      <button type="button" class="toggle-password" (click)="togglePassword()">
+        <i class="fa" [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
+      </button>
+    </div>
+
+    <!-- Inline error for signup -->
+    <p *ngIf="errorMessage && isSignup" class="error-msg">{{ errorMessage }}</p>
+
+    <button type="submit" class="login-btn">Sign Up</button>
+  </form>
+
+  <div class="extra-links">
+    <p *ngIf="!isSignup">
+      Don’t have an account? <a (click)="toggleMode()">Sign up</a>
+    </p>
+    <p *ngIf="isSignup">
+      Already have an account? <a (click)="toggleMode()">Login</a>
+    </p>
+  </div>
+</div>

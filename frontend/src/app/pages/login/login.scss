@@ -1,0 +1,157 @@
+.login-container {
+  max-width: 400px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+  color: #222;
+
+  .logo {
+    font-weight: 900;
+    font-size: 28px;
+    color: #222;
+    text-align: center;
+    margin-bottom: 1rem;
+    cursor: pointer;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #1a1a1a;
+  }
+  /* ✅ Inline success banner */
+  .success-banner {
+    background: #d4edda;
+    color: #155724;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      margin: 0.5rem 0 0.25rem;
+      font-weight: 500;
+      color: #1a1a1a;
+    }
+
+    .form-input {
+      width: 100%;
+      background: #f5f6f7;
+      border: 1px solid #ccd0d5;
+      border-radius: 6px;
+      padding: 12px;
+      font-size: 15px;
+      margin-bottom: 1rem;
+      color: #1c1e21;
+      box-sizing: border-box;
+
+      &:focus {
+        border-color: #0071e3;
+        box-shadow: 0 0 0 2px rgba(0, 113, 227, 0.15);
+        outline: none;
+      }
+      /* 🔹 Autofill fix for all inputs */
+      &:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px #f5f6f7 inset;
+        -webkit-text-fill-color: #1c1e21;
+        transition: background-color 5000s ease-in-out 0s;
+      }
+    }
+
+    .password-wrapper {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      background: #f5f6f7;
+      border: 1px solid #ccd0d5;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      box-sizing: border-box;
+
+      input {
+        flex: 1;
+        border: none;
+        background: transparent;
+        padding: 12px;
+        font-size: 15px;
+        color: #1c1e21;
+
+        &:focus {
+          outline: none;
+        }
+        /* 🔹 Autofill fix inside password wrapper */
+        &:-webkit-autofill {
+          -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+          -webkit-text-fill-color: #1c1e21;
+          transition: background-color 5000s ease-in-out 0s;
+        }
+      }
+
+      .toggle-password {
+        border: none;
+        background: none;
+        cursor: pointer;
+        padding: 0 12px;
+        font-size: 16px;
+        color: #1c1e21;
+
+        &:hover {
+          color: #000;
+        }
+
+        i {
+          pointer-events: none;
+        }
+      }
+    }
+
+    .login-btn {
+      padding: 12px;
+      background-color: #0071e3;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background-color: #005bb5;
+      }
+    }
+  }
+
+  .error-msg {
+    color: #e60023;
+    font-size: 14px;
+    margin: -0.5rem 0 1rem 0;
+    text-align: left;
+  }
+
+  .extra-links {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 14px;
+
+    a {
+      color: #0071e3;
+      text-decoration: none;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

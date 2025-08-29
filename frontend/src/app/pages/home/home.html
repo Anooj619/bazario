@@ -1,0 +1,17 @@
+<div class="home-container">
+  <div *ngIf="showBanner" class="banner-section">
+    <img src="assets/banner_img.png" alt="Bazario Banner" class="banner-img" />
+  </div>
+
+  <div class="products-section">
+    <h2 *ngIf="showBanner">All Products</h2>
+    <h2 *ngIf="!showBanner">Products</h2>
+
+    <div class="product-grid">
+      <app-product-card *ngFor="let product of products"
+                        [product]="product"
+                        (productClick)="onProductClick($event)">
+      </app-product-card>
+    </div>
+  </div>
+</div>

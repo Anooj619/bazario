@@ -1,0 +1,230 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #dcdcdc;
+  font-family: 'Segoe UI', sans-serif;
+  position: relative;
+  z-index: 1000;
+}
+
+/* Left: Logo + Categories */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 48px; /* space between logo and categories */
+}
+
+.nav-left .logo {
+  font-weight: 900;
+  font-size: 28px;
+  color: #222222;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Category hover wrapper */
+.category-hover-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.category-link {
+  font-size: 16px;
+  font-weight: bold;
+  color: #222222;
+  transition: color 0.2s ease;
+}
+
+.category-link:hover {
+  color: #0071e3;
+}
+
+/* -------------------- SUBCATEGORY POPUP -------------------- */
+.subcategory-popup {
+  display: none; /* hidden by default */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 180px;
+  background-color: #ffffff;
+  padding: 12px 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  flex-direction: column;
+  z-index: 999;
+  border-radius: 4px;
+  gap: 4px; /* spacing between items */
+}
+
+/* Show popup on hover */
+.category-hover-wrapper:hover .subcategory-popup {
+  display: flex;
+}
+
+.subcategory-item {
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #222222;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  border-radius: 0;
+}
+
+.subcategory-item:hover {
+  background-color: #f2f2f2; /* subtle hover */
+  color: #0071e3;
+}
+
+/* -------------------- Search Bar -------------------- */
+.nav-center {
+  flex: 1 1 400px;
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+  position: relative;
+}
+
+.nav-center input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #cccccc;
+  outline: none;
+  font-size: 14px;
+  border-radius: 4px;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nav-center input:focus {
+  border-color: #0071e3;
+  box-shadow: 0 0 0 3px rgba(0,113,227,0.1);
+}
+.suggestions {
+  position: absolute;
+  top: 100%; /* right below input */
+  left: 0;
+  width: 100%; /* match input width only */
+  background: #fff;
+  border: 1px solid #ccc;
+  margin-top: 4px;
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: 1001;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.suggestion-item:hover {
+  background: #f2f2f2;
+  color: #0071e3;
+}
+/* -------------------- Right Links -------------------- */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-right a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #222222;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.nav-right a i {
+  margin-right: 6px;
+  font-size: 16px;
+}
+
+.nav-right a:hover {
+  color: #0071e3;
+}
+/* Profile Dropdown */
+/* profile.component.css */
+.profile-container {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  min-width: 150px;
+  z-index: 1000;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+  background: #f5f5f5;
+}
+.cart-link {
+  position: relative;
+  display: flex;
+  flex-direction: row; /* ✅ keeps Bag text beside icon */
+  align-items: center;
+  gap: 10px; /* spacing between icon and Bag text */
+  color: #282c3f;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.icon-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.cart-link i {
+  font-size: 22px; /* adjust like Myntra */
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px; /* ✅ slightly higher above bag icon */
+  right: -6px;
+  background-color: #ff6f3c;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  min-width: 18px;
+  height: 18px;
+  display: flex; /* ✅ makes it perfectly circular */
+  align-items: center;
+  justify-content: center;
+}
+
+.bag-text {
+  margin: 0; /* ✅ remove extra spacing */
+}
+
+
+
+
+
+
+
+
+
