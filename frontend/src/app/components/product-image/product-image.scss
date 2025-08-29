@@ -1,0 +1,64 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+/* Shared wrapper */
+.img-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+  background: #f8f9fc;
+}
+
+/* Default image rules */
+.img-wrap img {
+  display: block;
+  max-width: 100%;
+}
+
+/* === Context-specific sizing === */
+
+/* CARD / WISHLIST — the parent gives the area; we fill it */
+.img-wrap.card,
+.img-wrap.wishlist {
+  height: 100%; /* fill parent’s fixed height */
+  border-radius: 8px;
+}
+
+.img-wrap.card img,
+.img-wrap.wishlist img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* show full product without cropping */
+}
+
+/* CART (small square) — if you use this component there too */
+.img-wrap.cart {
+  width: 80px;
+  height: 80px;
+  border-radius: 6px;
+}
+
+.img-wrap.cart img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* DETAIL — cap width & height and center nicely */
+.img-wrap.detail {
+  max-width: 450px;
+  max-height: 500px;
+  margin: 0 auto;
+  border-radius: 12px;
+}
+
+.img-wrap.detail img {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+}

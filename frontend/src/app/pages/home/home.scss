@@ -1,0 +1,72 @@
+
+
+
+
+/* 🔹 Main container */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 40px;
+  margin-top: 20px;
+}
+
+/* 🔹 Banner Section */
+.banner-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  /*background-color: red;*/
+}
+
+.banner-img {
+  width: 100%;
+  max-width: 1400px; /* keeps it centered */
+  height: auto;
+  display: block;
+}
+.banner-img:hover {
+  transform: scale(1.02);
+}
+
+/* 🔹 Products Section */
+.products-section {
+  padding: 10px 0;
+}
+
+.products-section h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+  text-align: left;
+  color: #333;
+}
+
+/* 🔹 Product Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+/* 🔹 Responsive */
+@media (max-width: 768px) {
+  .home-container {
+    padding: 0 15px;
+  }
+
+  .banner-img {
+    max-height: 250px;
+  }
+
+  .products-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 15px;
+  }
+}
+
+

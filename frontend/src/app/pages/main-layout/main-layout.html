@@ -1,0 +1,10 @@
+<app-navbar (subcategorySelected)="onSubcategorySelected($event)"
+            (logoClick)="onLogoClick()"
+            (searchResults)="onSearchResults($event)">
+</app-navbar>
+
+<div class="main-content">
+  <router-outlet></router-outlet>
+</div>
+<!-- Global toast lives here -->
+<app-toast></app-toast>

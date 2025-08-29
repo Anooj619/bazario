@@ -1,0 +1,24 @@
+<div class="cart-summary" *ngIf="cartItems && cartItems.length > 0">
+  <h3>Price Details</h3>
+
+  <div class="summary-row">
+    <span>Price ({{ getTotalQuantity() }} items)</span>
+    <span>₹{{ getTotalOldPrice() }}</span>
+  </div>
+
+  <div class="summary-row discount">
+    <span>Discount</span>
+    <span>-₹{{ getDiscountAmount() }}</span>
+  </div>
+
+  <hr />
+
+  <div class="summary-row total">
+    <span>Total Amount</span>
+    <span>₹{{ getTotalPrice() }}</span>
+  </div>
+
+  <button class="checkout-btn" (click)="proceedToCheckout()">Proceed to Checkout</button>
+
+  <p class="savings">You will save ₹{{ getDiscountAmount() }} on this order</p>
+</div>

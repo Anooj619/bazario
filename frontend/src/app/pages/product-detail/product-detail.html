@@ -1,0 +1,48 @@
+<div *ngIf="product" class="product-detail">
+  <!-- Left Image Section -->
+  <div class="image-section">
+    <!--<img [src]="apiUrl.replace('/api', '') + product.imageUrl" [alt]="product.name" />-->
+    <app-product-image [imageUrl]="product.imageUrl"
+                       [alt]="product.name"
+                       type="detail" />
+  </div>
+
+  <!-- Right Info Section -->
+  <div class="info-section">
+    <h2 class="product-name">{{ product.name }}</h2>
+
+    <!-- Rating -->
+    <div class="product-rating" *ngIf="product.rating">
+      <span class="stars">⭐ {{ product.rating }}</span>
+      <span class="reviews">(124)</span>
+    </div>
+
+    <!-- Price -->
+    <div class="product-price">
+      ₹{{ product.price }}
+      <span class="old-price">₹{{ product.price + 500 }}</span>
+      <span class="discount">25% OFF</span>
+    </div>
+
+    <!-- Delivery Info -->
+    <p class="delivery">Fast Delivery Available</p>
+
+    <!-- Description -->
+    <p class="description">{{ product.description }}</p>
+
+    <!-- Category Info -->
+    <p *ngIf="product.category && product.subcategory" class="category">
+      <strong>Category:</strong> {{ product.category }} → {{ product.subcategory }}
+    </p>
+
+    <!-- Actions -->
+    <div class="actions">
+      <button class="add-to-cart-btn" (click)="addToCart()">
+        {{ isInCart ? 'Go to Cart' : 'Add to Cart' }}
+      </button>
+      <button class="wishlist-btn" (click)="toggleWishlist()">
+        {{ isInWishlist ? 'Go to Wishlist' : 'Add to Wishlist' }}
+      </button>
+    </div>
+  </div>
+</div>

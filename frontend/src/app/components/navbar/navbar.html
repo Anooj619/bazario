@@ -1,0 +1,69 @@
+<nav class="navbar">
+  <div class="nav-left"  (mouseenter)="onNavOptionHover()">
+    <div class="logo" (click)="onLogoClick()">Bazario</div>
+
+    <!-- Category wrapper with hover logic -->
+    <div class="category-hover-wrapper"
+         *ngFor="let cat of categories"
+         (mouseenter)="showSubcategories(cat)"
+         (mouseleave)="showCategoryDropdown = false">
+      <span class="category-link">{{ cat.name }}</span>
+
+      <!-- Subcategory popup (shown on hover) -->
+      <div class="subcategory-popup"
+           *ngIf="selectedCategory === cat && selectedSubcategories.length">
+        <div *ngFor="let sub of selectedSubcategories"
+             class="subcategory-item"
+             (click)="selectSubcategory(sub)">
+          {{ sub.name }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--<div class="nav-center">
+    <input type="text" placeholder="Search for products, brands and more" />
+  </div>-->
+  <div class="nav-center" #searchContainer>
+    <input type="text"
+           placeholder="Search for products, brands and more"
+           [(ngModel)]="searchQuery"
+           (input)="onSearchInput()"
+           (keyup.enter)="search()" />
+
+    <!-- Suggestions dropdown -->
+    <div class="suggestions" *ngIf="suggestions.length">
+      <div class="suggestion-item" *ngFor="let s of suggestions" (click)="selectSuggestion(s)">
+        {{ s.name }}
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-right" (mouseenter)="onNavOptionHover()">
+    <!-- Profile dropdown -->
+    <div class="profile-container"
+         (mouseenter)="showProfileDropdown = true"
+         (mouseleave)="showProfileDropdown = false">
+      <a class="profile-link">
+        <i class="fas fa-user"></i> Profile
+      </a>
+
+      <!-- Dropdown Menu -->
+      <div class="dropdown-menu" *ngIf="showProfileDropdown">
+        <a routerLink="" (click)="closeDropdown()">My Account</a>
+        <a routerLink="/cart" (click)="closeDropdown()">My Orders</a>
+        <a routerLink="/wishlist" (click)="closeDropdown()">Wishlist</a>
+        <a routerLink="/login" (click)="closeDropdown()">Logout</a>
+      </div>
+    </div>
+
+    <a routerLink="/wishlist"><i class="fas fa-heart"></i> Wishlist</a>
+    <a routerLink="/cart" class="cart-link">
+      <div class="icon-wrapper">
+        <i class="fas fa-shopping-bag"></i>
+        <span class="cart-badge" *ngIf="cartCount > 0">{{ cartCount }}</span>
+      </div>
+      <span class="bag-text">Bag</span>
+    </a>
+  </div>
+</nav>
