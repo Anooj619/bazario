@@ -84,5 +84,4 @@ coverage/
 .nyc_output/
 
 appsettings.json
-
-"appsettings.*.json" 
+appsettings.Development.json
