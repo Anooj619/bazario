@@ -85,3 +85,5 @@ coverage/
 
 appsettings.json
 appsettings.Development.json
+
+src/environment/environment.ts
