@@ -86,4 +86,4 @@ coverage/
 appsettings.json
 appsettings.Development.json
 
-frontend/src/environment/environment.ts
+#frontend/src/environment/environment.ts
