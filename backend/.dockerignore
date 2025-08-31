@@ -1,0 +1,11 @@
+bin
+obj
+.vs
+*.user
+*.suo
+*.md
+.git
+.gitignore
+node_modules
+npm-debug.log
+.env
