@@ -106,7 +106,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: MyAllowSpecificOrigins,
         policy =>
         {
-            policy.WithOrigins("http://localhost:3000") // later add deployed frontend URL
+            policy.WithOrigins("https://bazarioapp.netlify.app") // later add deployed frontend URL
                   .AllowAnyHeader()
                   .AllowAnyMethod();
         });
