@@ -11,8 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Config: appsettings + env vars
 builder.Configuration
-    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-    .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true)
+    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)    
     .AddEnvironmentVariables();
 
 // Database
@@ -110,18 +109,17 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.UseHttpsRedirection();
 }
 
 app.UseCors(MyAllowSpecificOrigins);
-if (app.Environment.IsDevelopment())
-{
-    app.UseHttpsRedirection();
-}
-var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
-app.Urls.Add($"http://*:{port}");
+
+
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseStaticFiles();
 app.MapControllers();
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
+app.Urls.Add($"http://*:{port}");
 
 app.Run();
