@@ -14,6 +14,16 @@ builder.Configuration
     .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)    
     .AddEnvironmentVariables();
 
+
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+
+
+if (!builder.Environment.IsDevelopment())
+{
+    builder.Logging.AddFilter("Microsoft", LogLevel.Warning);
+}
+
 // Database
 builder.Services.AddDbContext<BazarioDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
