@@ -16,6 +16,7 @@ export class ProductImageComponent {
 
   baseUrl = environment.apiUrl.replace('/api', '');
   fallbackUrl = 'assets/bazrario.png'; // put one safe default in assets
+  /*public imageBaseUrl = environment.imageBaseUrl;*/
 
   // compute the image src
   get src(): string {

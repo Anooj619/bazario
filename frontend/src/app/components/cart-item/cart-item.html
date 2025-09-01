@@ -1,7 +1,7 @@
 <div class="cart-item" *ngIf="item">
   <!-- Product Image -->
   <div class="item-image">
-    <app-product-image [imageUrl]="item.productImageUrl ?? ''"
+    <app-product-image [imageUrl]="item.productImageUrl ? (imageBaseUrl + item.productImageUrl) : ''"
                        [alt]="item.productName ?? 'product image'"
                        type="cart" />
   </div>

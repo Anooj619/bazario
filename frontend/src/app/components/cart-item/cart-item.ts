@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CartItem } from '../../models/CartItem';
 import { NgIf, CommonModule } from '@angular/common';
 import { ProductImageComponent } from '../product-image/product-image';
+import { environment } from '../../../environment/environment';
 
 @Component({ 
   selector: 'app-cart-item',
@@ -12,6 +13,7 @@ import { ProductImageComponent } from '../product-image/product-image';
 })
 export class CartItemComponent {
   @Input() item!: CartItem;
+  public imageBaseUrl = environment.imageBaseUrl;
 
   // Emit only the cartItem ID for removal
   @Output() remove = new EventEmitter<number>();

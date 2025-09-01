@@ -24,6 +24,7 @@ export class ProductDetailComponent implements OnInit {
   isInWishlist: boolean = false;
   isInCart: boolean = false;
   public apiUrl = environment.apiUrl;
+  public imageBaseUrl = environment.imageBaseUrl; 
 
   constructor(
     private productService: ProductService,

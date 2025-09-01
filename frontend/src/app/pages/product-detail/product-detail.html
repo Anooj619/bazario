@@ -2,7 +2,7 @@
   <!-- Left Image Section -->
   <div class="image-section">
     <!--<img [src]="apiUrl.replace('/api', '') + product.imageUrl" [alt]="product.name" />-->
-    <app-product-image [imageUrl]="product.imageUrl"
+    <app-product-image [imageUrl]="imageBaseUrl + product.imageUrl"
                        [alt]="product.name"
                        type="detail" />
   </div>

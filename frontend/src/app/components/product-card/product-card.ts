@@ -24,6 +24,7 @@ export class ProductCardComponent {
   @Output() remove = new EventEmitter<number>();
   @Output() productClick = new EventEmitter<number>();  // ✅ Emits when card clicked
   public apiUrl = environment.apiUrl;
+  public imageBaseUrl = environment.imageBaseUrl;
 
   private currentUser: LoggedInUser | null = null;
 
