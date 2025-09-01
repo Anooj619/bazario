@@ -20,7 +20,7 @@ export class ProductImageComponent {
 
   // compute the image src
   get src(): string {
-    return this.imageUrl ? this.baseUrl + this.imageUrl : this.fallbackUrl;
+    return this.imageUrl ? this.imageUrl : this.fallbackUrl;
   }
 
   // if image fails to load → fallback
